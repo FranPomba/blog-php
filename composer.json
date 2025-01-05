@@ -1,0 +1,20 @@
+{
+    "name": "franpomba/blog-php",
+    "description": "blog feito com php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Francisco Pomba"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twig/twig": "4.x-dev",
+        "pecee/simple-router": "dev-master"
+    }
+}
