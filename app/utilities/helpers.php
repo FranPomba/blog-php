@@ -26,4 +26,35 @@ class Helpers
         $summary = substr($text, 0, stripos(substr($text, 0, $limite), '')) . '...';
         return $summary;
     }
+
+    public static function countTime(string $data)
+    {
+        $current = strtotime(date('Y-m-d H:i:s'));
+        $time = strtotime($data);
+        $diference = $current - $time;
+
+        $sec = $diference;
+        $min = round($sec / 60);
+        $hour = round($sec / 3600);
+        $day = round($sec / 86400);
+        $week = round($sec / 604800);
+        $month = round($sec / 2419200);
+        $year =  round($sec / 29030400);
+
+        if ($sec <= 60) {
+            return "Agora mesmo";
+        } elseif ($min <= 60) {
+            return "Há $min min";
+        } elseif ($hour <= 24) {
+            return "Há $hour horas";
+        } elseif ($day <= 1) {
+            return "Há $day dias";
+        } elseif ($week <= 4) {
+            return "Há $week semanas";
+        } elseif ($month <= 12) {
+            return "Há $month meses";
+        } else {
+            return $year == 1 ? "Há um ano" : "Há $year anos";
+        }
+    }
 }

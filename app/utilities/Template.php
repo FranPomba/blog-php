@@ -35,8 +35,11 @@ class Template
             $this->twig->addFunction(new \Twig\TwigFunction("redirect", function (string $url = null) {
                 return Helpers::redirect($url);
             })),
-            $this->twig->addFunction(new \Twig\TwigFunction("summarizeText", function(string $text, int $limite=20){
+            $this->twig->addFunction(new \Twig\TwigFunction("summarizeText", function (string $text, int $limite = 20) {
                 return Helpers::summarizeText($text, $limite);
+            })),
+            $this->twig->addFunction(new \Twig\TwigFunction("countTime", function ($data) {
+                return Helpers::countTime($data);
             })),
         );
     }

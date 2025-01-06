@@ -1,7 +1,16 @@
 
+node_modules/
+package-lock.json
+yarn.lock
+
+
+tailwind.css
+tailwind.config.js
+postcss.config.js
+
 public/*
 *.log
-*.cache
+*.caches
 
 
 .env
