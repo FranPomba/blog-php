@@ -1,7 +1,7 @@
 <?php
 namespace model;
 
-use config\DataBase;
+use app\config\DataBase;
 use PDO;
 
 class Post{
@@ -10,17 +10,17 @@ class Post{
         $this->conn = (new DataBase())->connectSQLite();
     }
     public function insertPost($data){
-        $query = "INSERT INTO posts (title, content) VALUES (?,?)";
+        $query = "INSERT INTO posts (title, body) VALUES (?,?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $data["title"], PDO::PARAM_STR);
-        $stmt->bindParam(2, $data["content"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $data["body"], PDO::PARAM_STR);
         return $stmt->execute();
     }
     public function updatePost($data, $id){
-        $query = "UPDATE posts set title=?, content=? WHERE id=?";
+        $query = "UPDATE posts set title=?, body=? WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $data["title"], PDO::PARAM_STR);
-        $stmt->bindParam(2, $data["content"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $data["body"], PDO::PARAM_STR);
         $stmt->bindParam(3, $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
@@ -52,9 +52,9 @@ class Post{
             $query .= " AND title LIKE ?";
             $values[] = "%" . $data["title"] . "%";
         }
-        if(isset($data['content'])){
-            $query .= " AND content LIKE ?";
-            $values = "%" . $data['content'] . "%";
+        if(isset($data['body'])){
+            $query .= " AND body LIKE ?";
+            $values = "%" . $data['body'] . "%";
         }
         if(isset($data["created_at"])){
             $query .= "AND created_at = ?";

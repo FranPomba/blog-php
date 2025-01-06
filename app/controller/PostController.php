@@ -6,11 +6,11 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        parent::__construct("app/views");
+        parent::__construct("app/views/posts");
     }
 
     public function index()
     {
-        $this->template->render("index.php");
+       $this->render("index.php");
     }
 }

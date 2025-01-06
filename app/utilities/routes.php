@@ -1,8 +1,13 @@
 <?php
 
-
+use app\utilities\Template;
 use Pecee\SimpleRouter\SimpleRouter;
 
 SimpleRouter::setDefaultNamespace("app\controller");
-SimpleRouter::get("/", "PostController@index");
+SimpleRouter::get("/posts", "PostController@index");
+
+SimpleRouter::get("/", function () {
+    $template = new Template('app/views');
+    echo $template->render('home.php');
+});
 SimpleRouter::start();
