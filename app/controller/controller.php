@@ -9,9 +9,9 @@ class Controller
 
     private Template $template;
 
-    public function __construct(string $template)
+    public function __construct()
     {
-        $this->template = new Template($template);
+        $this->template = new Template("app/views/");
     }
 
     public function render(string $view, array $data = [])

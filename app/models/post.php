@@ -14,7 +14,8 @@ class Post{
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $data["title"], PDO::PARAM_STR);
         $stmt->bindParam(2, $data["body"], PDO::PARAM_STR);
-        return $stmt->execute();
+        $stmt->execute();
+        return $this->conn->lastInsertId();
     }
     public function updatePost($data, $id){
         $query = "UPDATE posts set title=?, body=? WHERE id=?";
