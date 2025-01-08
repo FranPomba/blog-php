@@ -3,7 +3,7 @@
 namespace app\controller;
 
 use app\utilities\Helpers;
-use model\Post;
+use app\models\Post;
 use PDOException;
 
 class PostController extends Controller
@@ -15,13 +15,15 @@ class PostController extends Controller
 
     public function index()
     {
-        $this->render("posts/index.php");
+        $posts = (new Post())->getAll();
+        $this->render("posts/index.php", ["posts"=> $posts]);
     }
     public function create()
     {
         if (isset($_POST["submit"])) {
             $title = $_POST["title"] ?? null;
             $body = $_POST["body"] ?? null;
+            var_dump($title, $body);
             if (!$this->validateData($title, $body)) {
                 return;
             }

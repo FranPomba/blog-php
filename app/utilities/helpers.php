@@ -20,10 +20,12 @@ class Helpers
     }
     public static function summarizeText(string $text, int $limite)
     {
-        if (strlen(trim($text)) <= $limite) {
-            return $text;
+       $textClear = trim($text);
+        if (strlen($textClear) <= $limite) {
+            return $textClear;
         }
-        $summary = substr($text, 0, stripos(substr($text, 0, $limite), '')) . '...';
+        $summary = substr($textClear, 0, strripos(substr($textClear, 0, $limite), '')) . '...';
+         
         return $summary;
     }
 

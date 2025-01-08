@@ -1,6 +1,6 @@
 {%
     set menus = [
-        {'name': 'Pagina Inicial', 'href':'#'},
+        {'name': 'Pagina Inicial', 'href':url('')},
         {'name': 'artigos', 'href':'#'},
         {'name': 'sobre', 'href':'#'}
         ]      

@@ -8,21 +8,21 @@
             <label for="nome" class="block text-sm font-medium text-gray-300 mb-1">Titulo:</label>
             <input
                 type="text"
-                id="titulo"
-                name="titulo"
+                id="title"
+                name="title"
                 required
-                class="w-full px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                class="w-full opacity-70 px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Digite o nome do projeto">
         </div>
 
         <div>
             <label for="descricao" class="block text-sm font-medium text-gray-300 mb-1">Texto:</label>
             <textarea
-                id="descricao"
-                name="descricao"
+                id="body"
+                name="body"
                 required
-                class="w-full opacity-25 px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                placeholder="Descreva o projeto"
+                class="w-full opacity-70 px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                placeholder="Descreva o artigo"
                 rows="4"></textarea>
         </div>
 
@@ -32,13 +32,13 @@
                 type="file"
                 id="img"
                 name="img"
-                class="w-full px-4 py-2 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                class="w-full px-4 py-2 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
         </div>
 
         <button
             type="submit"
             name="submit"
-            class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+            class="w-full bg-cyan-700 hover:bg-cyan-900 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
             Salvar
         </button>
     </div>

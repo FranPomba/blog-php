@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace app\models;
 
 use app\config\DataBase;
 use PDO;
@@ -32,7 +32,7 @@ class Post{
         return $stmt->execute();
     }
     public function findById($id){
-        $query = "SELECT FROM posts WHERE id=?";
+        $query = "SELECT * FROM posts WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
