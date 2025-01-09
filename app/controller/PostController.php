@@ -16,14 +16,13 @@ class PostController extends Controller
     public function index()
     {
         $posts = (new Post())->getAll();
-        $this->render("posts/index.php", ["posts"=> $posts]);
+        $this->render("posts/index.php", ["posts" => $posts]);
     }
     public function create()
     {
         if (isset($_POST["submit"])) {
             $title = $_POST["title"] ?? null;
             $body = $_POST["body"] ?? null;
-            var_dump($title, $body);
             if (!$this->validateData($title, $body)) {
                 return;
             }
@@ -34,7 +33,7 @@ class PostController extends Controller
                 Helpers::redirect("post/$id");
             } catch (PDOException $ex) {
                 echo "Error ao inserir o post " . $ex->getMessage();
-                redirect("/post");
+                Helpers::url("/post");
             }
         } else {
             $this->render("posts/create.php");

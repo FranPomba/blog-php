@@ -10,12 +10,7 @@
         Publicado em <span class="font-medium">{{post.created_at | date('d/m/Y', timezone: "Africa/Luanda") }}</span> por <span class="font-medium">Francisco Pomba</span>
     </div>
 
-    <div class="mb-6">
-        <img
-            src="/images/exemplo.jpg"
-            alt="Imagem do Post"
-            class="w-full h-64 object-cover rounded-lg">
-    </div>
+   
 
     <div class="text-gray-200 leading-relaxed">
         <p class="mb-4">

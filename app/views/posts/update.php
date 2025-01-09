@@ -12,7 +12,9 @@
                 name="title"
                 required
                 class="w-full opacity-70 px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                placeholder="Digite o nome do projeto">
+                placeholder="Digite o nome do projeto"
+                value="{{post.title}}">
+
         </div>
 
         <div>
@@ -23,16 +25,7 @@
                 required
                 class="w-full opacity-70 px-4 py-2  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Descreva o artigo"
-                rows="4"></textarea>
-        </div>
-
-        <div>
-            <label for="img" class="block text-sm font-medium text-gray-300 mb-1">URL da Imagem:</label>
-            <input
-                type="file"
-                id="img"
-                name="img"
-                class="w-full px-4 py-2 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                rows="4">{{post.body}}</textarea>
         </div>
 
         <button

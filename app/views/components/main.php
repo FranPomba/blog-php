@@ -1,7 +1,6 @@
 <section class="space-y-3">
     <div class=" grid grid-cols-4 gap-6 rounded-lg p-3">
         <div class="shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <img src="" alt="Artigo" class="w-full h-24 object-cover">
             {% for post in posts %}
             <div class="p-4">
                 <h2 class="font-semibold text-lg text-gray-300">{{ post.title }}</h2>
