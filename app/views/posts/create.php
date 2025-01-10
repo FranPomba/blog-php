@@ -1,5 +1,5 @@
 {% extends 'home.php'%}
-{% block title %} Criar Artigo {% endblock %}
+{% block title %} Criar Post {% endblock %}
 
 {% block conteudo %}
 <form action="" method="post" class="max-w-lg mx-auto p-6 rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-transparent">

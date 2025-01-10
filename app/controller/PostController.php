@@ -23,31 +23,31 @@ class PostController extends Controller
         if (isset($_POST["submit"])) {
             $title = $_POST["title"] ?? null;
             $body = $_POST["body"] ?? null;
+            $user = $_SESSION['user']['id'];
             if (!$this->validateData($title, $body)) {
-                return;
+                $error = "preencha todos os campos";
+            } else {
+                $data = ["title" => $title, "body" => $body, "user_id" => $user];
+                try {
+                    $post = new Post();
+                    $id = $post->insertPost($data);
+                    Helpers::redirect("post/$id");
+                } catch (PDOException $ex) {
+                    $error = "Error ao inserir o post " . $ex->getMessage();
+                }
             }
-            $data = ["title" => $title, "body" => $body];
-            try {
-                $post = new Post();
-                $id = $post->insertPost($data);
-                Helpers::redirect("post/$id");
-            } catch (PDOException $ex) {
-                echo "Error ao inserir o post " . $ex->getMessage();
-                Helpers::url("/post");
-            }
-        } else {
-            $this->render("posts/create.php");
+            
         }
+        $this->render("posts/create.php", ["error" => $error ?? null]);
     }
 
     public function detail($id)
     {
         $post = (new Post())->findById($id);
         if (!$post) {
-            echo "post não encontrado";
-            return;
+            $error = "post não encontrado";
         }
-        $this->render("posts/detail.php", ["post" => $post]);
+        $this->render("posts/detail.php", ["post" => $post, "error" => $error ?? null]);
     }
 
     public function update($id)
@@ -56,6 +56,7 @@ class PostController extends Controller
         if (isset($_POST["submit"])) {
             $title = $_POST["title"] ?? null;
             $body = $_POST['body'] ?? null;
+            $user = $_SESSION['user']['id'];
             if (!$this->validateData($title, $body)) {
                 return;
             }
@@ -65,9 +66,9 @@ class PostController extends Controller
         } else {
             $data = $post->findById($id);
             if (!$data) {
-                echo "post não encontrado";
+                $error = "post não encontrado";
             }
-            $this->render("posts/update.php", ["post" => $data]);
+            $this->render("posts/update.php", ["post" => $data, "error" => $error ?? null]);
         }
     }
 
@@ -81,7 +82,6 @@ class PostController extends Controller
     private function validateData($title, $body)
     {
         if (empty($title) || empty($body)) {
-            echo "preencha todos os campos";
             return false;
         }
         return true;

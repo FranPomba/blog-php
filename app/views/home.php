@@ -9,7 +9,9 @@
 </head>
 
 <body class="h-screen bg-cover bg-center bg-[url('../img/bg/fundo1.jpg')] text-gray-200" id="background">
-    {% include 'components/headers.php'%}
+    {% block header %}
+        {% include 'components/headers.php'%}
+    {% endblock %}
     <main class="mx-auto max-w-screen-lg min-h-20 px-3 py-6 gap-y-6">
         {% block conteudo %}
         <div class="bg-opacity-50 text-white h-full flex flex-col items-center justify-center">

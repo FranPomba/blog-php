@@ -16,8 +16,10 @@ class Template
             'cache' => false,
             'debug' => true,
         ]);
+        session_start();
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         $lexer = new Lexer($this->twig, array($this->helpers()));
+        $this->twig->addGlobal('session', $_SESSION);
         $this->twig->setLexer($lexer);
     }
 

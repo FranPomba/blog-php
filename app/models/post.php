@@ -10,10 +10,11 @@ class Post{
         $this->conn = (new DataBase())->connectSQLite();
     }
     public function insertPost($data){
-        $query = "INSERT INTO posts (title, body) VALUES (?,?)";
+        $query = "INSERT INTO posts (title, body, user_id) VALUES (?,?,?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $data["title"], PDO::PARAM_STR);
         $stmt->bindParam(2, $data["body"], PDO::PARAM_STR);
+        $stmt->bindParam(3, $data["user_id"], PDO::PARAM_INT);
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
