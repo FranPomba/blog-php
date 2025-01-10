@@ -44,6 +44,6 @@ Este projeto é um blog simples desenvolvido em PHP nativo com o objetivo de pra
 
 3. Inicie o servidor de desenvolvimento:
    ```bash
-   php -S localhost:8000 -t public/
+   php -S localhost:8000
    ```
 
