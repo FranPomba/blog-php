@@ -8,14 +8,16 @@ use PDOException;
 
 class PostController extends Controller
 {
+    private $post;
     public function __construct()
     {
+        $this->post = new Post();
         parent::__construct();
     }
 
     public function index()
     {
-        $posts = (new Post())->getAll();
+        $posts = $this->post->getAll();
         $this->render("posts/index.php", ["posts" => $posts]);
     }
     public function create()
@@ -29,21 +31,19 @@ class PostController extends Controller
             } else {
                 $data = ["title" => $title, "body" => $body, "user_id" => $user];
                 try {
-                    $post = new Post();
-                    $id = $post->insertPost($data);
+                    $id = $this->post->insertPost($data);
                     Helpers::redirect("post/$id");
                 } catch (PDOException $ex) {
                     $error = "Error ao inserir o post " . $ex->getMessage();
                 }
             }
-            
         }
         $this->render("posts/create.php", ["error" => $error ?? null]);
     }
 
     public function detail($id)
     {
-        $post = (new Post())->findById($id);
+        $post = $this->post->findById($id);
         if (!$post) {
             $error = "post não encontrado";
         }
@@ -52,19 +52,17 @@ class PostController extends Controller
 
     public function update($id)
     {
-        $post = new Post();
         if (isset($_POST["submit"])) {
             $title = $_POST["title"] ?? null;
             $body = $_POST['body'] ?? null;
-            $user = $_SESSION['user']['id'];
             if (!$this->validateData($title, $body)) {
                 return;
             }
             $data = ["title" => $title, "body" => $body];
-            $post->updatePost($data, $id);
+            $this->post->updatePost($data, $id);
             Helpers::redirect("post/$id");
         } else {
-            $data = $post->findById($id);
+            $data = $this->post->findById($id);
             if (!$data) {
                 $error = "post não encontrado";
             }
@@ -74,9 +72,8 @@ class PostController extends Controller
 
     public function delete($id)
     {
-        $post = new Post();
-        $post->deletePost($id);
-        Helpers::redirect("/");
+        $this->post->deletePost($id);
+        Helpers::redirect("");
     }
 
     private function validateData($title, $body)

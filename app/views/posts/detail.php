@@ -16,7 +16,7 @@
                 class="bg-emerald-500 text-white hover:bg-emerald-600 py-1 px-3 text-sm rounded font-medium">
                 Editar Post
             </a>
-            <form action="{{ url('post/' ~ post.id ~ '/edit') }}" method="post">
+            <form action="{{ url('post/' ~ post.id ~ '/delete') }}" onsubmit="return confirm('Tem certeza de que deseja eliminar este post?');" method="post">
                 <button type="submit"
                     class="bg-red-500 text-white text-sm font-medium py-1 px-3 rounded hover:bg-red-600">
                     Eliminar

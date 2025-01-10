@@ -13,7 +13,7 @@ SimpleRouter::group(['middleware' => Auth::class], function(){
     SimpleRouter::post("/post", "PostController@create");
     SimpleRouter::get("/post/{id}/edit", "PostController@update");
     SimpleRouter::post("/post/{id}/update", "PostController@update");
-    SimpleRouter::get("/post/{id}/delete", "PostController@delete");
+    SimpleRouter::post("/post/{id}/delete", "PostController@delete");
 });
 SimpleRouter::get("/posts", "PostController@index");
 SimpleRouter::get("/post/{id}", "PostController@detail");
