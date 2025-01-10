@@ -11,8 +11,17 @@
             Publicado em <span class="font-medium">{{post.created_at | date('d/m/Y', timezone: "Africa/Luanda") }}</span> por <span class="font-medium">Francisco Pomba</span>
         </div>
         {% if session.user %}
-        <div>
-            <a href="{{url('post/'~post.id ~ '/edit')}}" class="text-cyan-700 hover:underline text-sm font-medium mt-3 inline-block">Editar Post</a>
+        <div class="flex items-center space-x-4">
+            <a href="{{ url('post/' ~ post.id ~ '/edit') }}"
+                class="bg-emerald-500 text-white hover:bg-emerald-600 py-1 px-3 text-sm rounded font-medium">
+                Editar Post
+            </a>
+            <form action="{{ url('post/' ~ post.id ~ '/edit') }}" method="post">
+                <button type="submit"
+                    class="bg-red-500 text-white text-sm font-medium py-1 px-3 rounded hover:bg-red-600">
+                    Eliminar
+                </button>
+            </form>
         </div>
         {% endif %}
     </div>

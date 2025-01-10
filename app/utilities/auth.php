@@ -2,9 +2,12 @@
 
 namespace app\utilities;
 
-class Auth
+use Pecee\Http\Middleware\IMiddleware;
+use Pecee\Http\Request;
+
+class Auth implements IMiddleware
 {
-    public function handle()
+    public function handle(Request $request):void
     {
         session_start();
         if (!isset($_SESSION['user'])) {

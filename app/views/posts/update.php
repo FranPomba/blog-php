@@ -2,7 +2,7 @@
 {% block title %} Editar {{post.title}} {% endblock %}
 
 {% block conteudo %}
-<form action="" method="post" class="max-w-lg mx-auto p-6 rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-transparent">
+<form action="{{url('post/'~post.id~'/update')}}" method="post" class="max-w-lg mx-auto p-6 rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-transparent">
     <div class="flex flex-col gap-4">
         <div>
             <label for="nome" class="block text-sm font-medium text-gray-300 mb-1">Titulo:</label>
