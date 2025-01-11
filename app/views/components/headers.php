@@ -1,7 +1,7 @@
 {%
     set menus = [
         {'name': 'Pagina Inicial', 'href':url('')},
-        {'name': 'sobre', 'href':'#'}
+        {'name': 'sobre', 'href': url('sobre-mim')}
         ]      
 %}
 <header class="mx-auto max-w-4xl opacity-80 p-6 shadow-lg rounded-lg mt-8 items-center justify-between  px-3 py-6 flex">

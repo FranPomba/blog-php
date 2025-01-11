@@ -32,4 +32,9 @@ SimpleRouter::get("/", function () {
     $posts = (new Post())->getAll();
     echo $template->render('home.php', ['posts'=> $posts]);
 });
+
+SimpleRouter::get("/sobre-mim", function () {
+    $template = new Template('app/views');
+    echo $template->render('sobre.php');
+});
 SimpleRouter::start();
