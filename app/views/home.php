@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - {% block title %} Pagina Inicial {% endblock %}</title>
-    <link rel="stylesheet" href="{{url('public/css/styles.css')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="h-screen bg-cover bg-center bg-[url('../img/bg/fundo1.jpg')] text-gray-200" id="background">
